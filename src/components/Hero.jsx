@@ -1,4 +1,4 @@
-import react, {useEffect} from 'react'
+import react, {useEffect, useState} from 'react'
 
 
 const services = [
@@ -8,8 +8,9 @@ const services = [
 ];
 
 function Hero() {
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
-    setTimeout(() => setVisible(true), 100); // ✅ page load pe animation
+    setTimeout(() => setVisible(true), 100);
   }, []);
 
     return (
@@ -51,7 +52,7 @@ function Hero() {
             View Our Work
           </button>
         </div>
-         <div className="animate-bounce flex gap-6 justify-center flex-wrap">
+         <div className="fade-up-5 flex gap-6 justify-center flex-wrap">
           {services.map((service, i) => (
             <div key={i} className="flex items-center gap-5 text-sm text-gray-700">
               <div

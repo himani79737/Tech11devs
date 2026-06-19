@@ -1,8 +1,12 @@
 import react from 'react';
+import { NavLink } from 'react-router-dom';
+
+const linkClass = ({ isActive }) =>
+  `hover:text-white transition-all duration-300 ${isActive ? 'text-white font-semibold' : 'text-gray-300'}`;
 
 function Footer() {
     return (
-        <section className="bg-blue-700 py-10 px-6  text-gray-300">
+        <section className="bg-blue-500 py-10 px-6  text-gray-300">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <div>
                     <span className='text-2xl font-extrabold text-white border-b-3 border-white pb-1'>Tech11 </span>
