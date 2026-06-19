@@ -1,22 +1,49 @@
-import react from 'react'
+import react, {useEffect} from 'react'
 
 
 const services = [
-  { icon: "💻", label: "Web Development", bg: "#1a69b3" },
-  { icon: "☁️", label: "Cloud & DevOps", bg: "#1a69b3" },
-  { icon: "🎨", label: "UI/UX Design", bg: "#1a69b3" },
+  { icon: "💻", label: "Web Development", bg: "#b4cbddd3" },
+  { icon: "☁️", label: "Cloud & DevOps", bg: "#b4cbddd3" },
+  { icon: "🎨", label: "UI/UX Design", bg: "#b4cbddd3" },
 ];
 
 function Hero() {
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100); // ✅ page load pe animation
+  }, []);
+
     return (
-        <section className='min-h-screen flex items-center justify-center px-6 py-16 bg-gray-200' id='home'>
-            <div className='max-w-3xl w-full mx-auto text-center'>
-                <p className='text-sm uppercase tracking-widest text-gray-600 mb-3'> Complete Solutions, From Start to Finish</p>
-                <h1 className='text-4xl md:text-6xl font-bold text-blue-700 leading-tight mb-6'>End-to-End Development Services
+      <>
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse-dot {
+          0%, 100% { transform: scale(1); opacity: 0.7; }
+          50% { transform: scale(1.3); opacity: 1; }
+        }
+        .fade-up-1 { animation: fadeUp 0.6s ease 0.1s both; }
+        .fade-up-2 { animation: fadeUp 0.6s ease 0.3s both; }
+        .fade-up-3 { animation: fadeUp 0.6s ease 0.5s both; }
+        .fade-up-4 { animation: fadeUp 0.6s ease 0.7s both; }
+        .fade-up-5 { animation: fadeUp 0.6s ease 0.9s both; }
+      `}</style>
+
+        <section className='min-h-screen flex items-center justify-center px-6 py-16 
+        bg-gray-200' id='home'>
+          
+            <div className=' max-w-3xl w-full mx-auto text-center'>
+                <p className='fade-up-1 text-sm uppercase tracking-widest text-gray-900 mb-3'> Complete Solutions, From Start to Finish</p>
+                <h1 className='fade-up-2 text-4xl md:text-6xl font-bold text-blue-700 leading-tight mb-6 '>End-to-End Development Services
                 </h1>
-                <p className='text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl mx-auto mb-10'>We manage every phase of your software or web development, ensuring a seamless journey from concept to launch.</p>
+                <p className='fade-up-3 text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl mx-auto mb-10'>We manage every phase of your software or web development, ensuring a seamless journey from concept to launch.</p>
                 {/* buttons */}
-                 <div className="flex gap-4 justify-center flex-wrap mb-12">
+                 <div className="fade-up-4 flex gap-4 justify-center flex-wrap mb-12">
           <button className="px-7 py-3 bg-blue-700 text-white rounded-lg font-medium hover:bg-blue-600 transition-all hover:scale-105">
             Get Started →
           </button>
@@ -24,14 +51,14 @@ function Hero() {
             View Our Work
           </button>
         </div>
-         <div className="flex gap-6 justify-center flex-wrap">
+         <div className="animate-bounce flex gap-6 justify-center flex-wrap">
           {services.map((service, i) => (
             <div key={i} className="flex items-center gap-5 text-sm text-gray-700">
               <div
                 className="w-10 h-10 rounded-lg flex items-center justify-center text-lg"
                 style={{
                   background: service.bg,
-                  animation: `float 3s ease-in-out ${i * 0.5}s infinite`,
+                  
                 }}
               >
                 {service.icon}
@@ -43,6 +70,7 @@ function Hero() {
                 
             </div>
         </section>
+        </>
     )
 }
 

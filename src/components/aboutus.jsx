@@ -19,7 +19,7 @@ function Aboutus() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 h-[500px]">
+                <div className="grid grid-cols-2 gap-3 h-[500px] animate-pulse ">
                     {/* right div */}
                     <div className='flex items-center'>
                         <img

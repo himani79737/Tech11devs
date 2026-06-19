@@ -9,10 +9,12 @@ function Navbar() {
         <nav className='flex items-center justify-between px-4 md:px-8 py-4 bg-gray-50'>
 
           {/* Logo */}
-          <a href=''>
+          <div className=' text-2xl font-extrabold text-blue-700
+                transition-transform duration-300
+                hover:rotate-5 cursor-pointer'>
             <span className='text-2xl font-extrabold text-blue-700 border-b-3 border-blue-800 pb-1'>Tech11 </span>
             <span className='text-2xl font-extrabold text-black border-b-3 border-blue-700 pb-1'>Devs</span>
-         </a>
+         </div>
 
           {/* ✅ Desktop Links — className={linkClass} lagaya */}
           <ul className='hidden md:flex items-center gap-8 font-medium'>
