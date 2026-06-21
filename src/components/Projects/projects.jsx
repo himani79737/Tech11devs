@@ -1,6 +1,6 @@
 import react from 'react'
-import project1 from '../assets/projects/project1.jpg'
-import project2 from '../assets/projects/project2.jpg'
+import project1 from '../../assets/projects/project1.jpg'
+import project2 from '../../assets/projects/project2.jpg'
 
 function Projects() {
     const projects = [
