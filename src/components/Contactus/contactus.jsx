@@ -1,6 +1,6 @@
 import react from 'react'
 import ContactForm from './contactform'
-import contactus from '../assets/contactus.png'
+import contactus from '../../assets/contactus.png'
 function Contactus() {
     return (
 

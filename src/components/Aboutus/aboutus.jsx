@@ -1,5 +1,5 @@
-import aboutus01 from '../assets/aboutus01.jpg'
-import aboutus02 from '../assets/aboutus02.jpg'
+import aboutus01 from '../../assets/aboutus01.jpg'
+import aboutus02 from '../../assets/aboutus02.jpg'
 function Aboutus() {
     return (
         <section className="bg-gray-100 py-10 px-6" id='about'>
