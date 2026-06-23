@@ -1,5 +1,5 @@
 import react from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const linkClass = ({ isActive }) =>
   `hover:text-white transition-all duration-300 ${isActive ? 'text-white font-semibold' : 'text-gray-300'}`;
@@ -25,12 +25,12 @@ function Footer() {
                     <ul className="space-y-2 cursor-pointer">
 
                         <li className="hover:text-white scale-105"> Our Services</li>
-                        <li className="hover:text-white scale-105">End-to-End Development Services</li>
-                        <li className="hover:text-white scale-105">White Label Development</li>
-                        <li className="hover:text-white scale-105">Staff Augmentation</li>
-                        <li className="hover:text-white scale-105">Search Marketing Services</li>
-                        <li className="hover:text-white scale-105">ERP Implementation</li>
-                        <li className="hover:text-white scale-105">AI Automation & Training</li>
+                        <li className="hover:text-white scale-105"><Link to="/Service">End-to-End Development Services</Link></li>
+                        <li className="hover:text-white scale-105"><Link to="/Labdevelopment">White Label Development</Link></li>
+                        <li className="hover:text-white scale-105"><Link to="/StaffAugmentation">Staff Augmentation</Link></li>
+                        <li className="hover:text-white scale-105"><Link to="/SearchMarketing">Search Marketing Services</Link></li>
+                        <li className="hover:text-white scale-105"><Link to="/ErpImplementation">ERP Implementation</Link></li>
+                        <li className="hover:text-white scale-105"><Link to="/AiAutomation">AI Automation & Training</Link></li>
                     </ul>
                 </div>
 

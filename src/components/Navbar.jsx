@@ -5,29 +5,31 @@ import {
   AiOutlineFundProjectionScreen,
   AiOutlinePhone,
 } from "react-icons/ai";
-import {Link} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
-  { id: "home", label: "Home", Link:"/", icon: <AiFillHome size={22} /> },
-  { id: "about", label: "About", Link:"/Navabout", icon: <AiOutlineInfoCircle size={22} /> },
-  { id: "project", label: "Work", Link:"Navwork", icon: <AiOutlineFundProjectionScreen size={22} /> },
-  { id: "contact", label: "Contact", Link:"/Navcontact", icon: <AiOutlinePhone size={22} /> },
+  { id: "home", label: "Home", path: "/", icon: <AiFillHome size={22} /> },
+  { id: "about", label: "About", path: "/Navabout", icon: <AiOutlineInfoCircle size={22} /> },
+  { id: "project", label: "Work", path: "/Navwork", icon: <AiOutlineFundProjectionScreen size={22} /> },
+  { id: "contact", label: "Contact", path: "/Navcontact", icon: <AiOutlinePhone size={22} /> },
 ];
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
+  const [scrollActive, setScrollActive] = useState('home'); 
+
 
   useEffect(() => {
-    function handleScroll() {
-      const scrollPos = window.scrollY + 120; //  navbar height + buffer
+    if (location.pathname !== '/') return; 
 
+    function handleScroll() {
+      const scrollPos = window.scrollY + 120;
       let current = navItems[0].id;
 
       navItems.forEach((item) => {
         const el = document.getElementById(item.id);
         if (el && el.offsetTop <= scrollPos) {
-          current = item.id; 
+          current = item.id;
         }
       });
 
@@ -38,18 +40,30 @@ function Navbar() {
         current = navItems[navItems.length - 1].id;
       }
 
-      setActiveSection(current);
-      window.history.replaceState(null, '', `#${current}`); //  URL update
+      setScrollActive(current);
+      window.history.replaceState(null, '', `#${current}`);
+
     }
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); //  page load pe bhi check karo
+    handleScroll(); 
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]); 
 
-  function linkClass(id) {
-    return activeSection === id
+  
+  function linkClass(item) {
+    let isActive;
+
+    if (location.pathname === '/') {
+      
+      isActive = scrollActive === item.id;
+    } else {
+      
+      isActive = location.pathname === item.path;
+    }
+
+    return isActive
       ? 'text-blue-700 underline decoration-blue-700 decoration-3 underline-offset-6'
       : 'text-gray-500 hover:underline hover:decoration-blue-700 decoration-3 underline-offset-6 transition-all duration-300';
   }
@@ -63,37 +77,40 @@ function Navbar() {
             <span className='text-2xl font-extrabold text-blue-700 border-b-3 border-blue-800 pb-1'>Tech11 </span>
             <span className='text-2xl font-extrabold text-black border-b-3 border-blue-700 pb-1'>Devs</span>
           </div>
-
+          {/* desktop nav */}
           <ul className='hidden md:flex items-center gap-8 font-medium'>
             {navItems.map((item) => (
               <li key={item.id}>
-                <Link to={item.Link} className={linkClass(item.id)}>
+                <Link to={item.path} className={linkClass(item)}>
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
 
-          
-
         </nav>
 
         {/* Mobile Bottom Navigation */}
         <div className="fixed bottom-0 left-0 w-full bg-white border-t shadow-lg z-50 md:hidden">
           <ul className="flex justify-around items-center py-2">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <Link to={item.Link} 
-                  className={`flex flex-col items-center text-xs transition-all duration-300 ${activeSection === item.id
-                      ? "text-blue-700"
-                      : "text-gray-500"
+            {navItems.map((item) => {
+              const isActive =
+                location.pathname === '/' ? scrollActive === item.id : location.pathname === item.path;
+
+              return (
+                <li key={item.id}>
+                  <Link
+                    to={item.path}
+                    className={`flex flex-col items-center text-xs transition-all duration-300 ${
+                      isActive ? "text-blue-700" : "text-gray-500"
                     }`}
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </Link>
-              </li>
-            ))}
+                  >
+                    {item.icon}
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
