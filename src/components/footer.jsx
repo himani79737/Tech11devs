@@ -1,8 +1,12 @@
 import react from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink  } from 'react-router-dom';
 
 const linkClass = ({ isActive }) =>
-  `hover:text-white transition-all duration-300 ${isActive ? 'text-white font-semibold' : 'text-gray-300'}`;
+  `transition-all duration-300 ${isActive
+    ? 'text-white font-semibold underline decoration-white decoration-2 underline-offset-4'
+    : 'text-gray-300 hover:text-white'
+  }`;
+
 
 function Footer() {
     return (
@@ -15,22 +19,22 @@ function Footer() {
                 </div>
                 <div>
                     <ul className="space-y-2 cursor-pointer ">
-                        <li className="hover:text-white scale-105">Home</li>
-                        <li className="hover:text-white scale-105">Our Work</li>
-                        <li className="hover:text-white scale-105">About Us</li>
-                        <li className="hover:text-white scale-105">Contact</li>
+                        <h1 className="text-white scale-105"> Quick NavLinks</h1>
+                        <li> <NavLink to="/Projects" className={linkClass}>Our Work </NavLink></li>
+                        <li> <NavLink to="/Aboutus" className={linkClass}>About Us </NavLink></li>
+                        <li> <NavLink to="/Contactus" className={linkClass}>Contact </NavLink></li>
                     </ul>
                 </div>
                 <div >
                     <ul className="space-y-2 cursor-pointer">
 
                         <li className="hover:text-white scale-105"> Our Services</li>
-                        <li className="hover:text-white scale-105"><Link to="/Service">End-to-End Development Services</Link></li>
-                        <li className="hover:text-white scale-105"><Link to="/Labdevelopment">White Label Development</Link></li>
-                        <li className="hover:text-white scale-105"><Link to="/StaffAugmentation">Staff Augmentation</Link></li>
-                        <li className="hover:text-white scale-105"><Link to="/SearchMarketing">Search Marketing Services</Link></li>
-                        <li className="hover:text-white scale-105"><Link to="/ErpImplementation">ERP Implementation</Link></li>
-                        <li className="hover:text-white scale-105"><Link to="/AiAutomation">AI Automation & Training</Link></li>
+                        <li className="hover:text-white scale-105"><NavLink to="/Service" className={linkClass}>End-to-End Development Services</NavLink></li>
+                        <li className="hover:text-white scale-105"><NavLink to="/Labdevelopment" className={linkClass}>White Label Development</NavLink></li>
+                        <li className="hover:text-white scale-105"><NavLink to="/StaffAugmentation" className={linkClass}>Staff Augmentation</NavLink></li>
+                        <li className="hover:text-white scale-105"><NavLink to="/SearchMarketing" className={linkClass}>Search Marketing Services</NavLink></li>
+                        <li className="hover:text-white scale-105"><NavLink to="/ErpImplementation" className={linkClass}>ERP Implementation</NavLink></li>
+                        <li className="hover:text-white scale-105"><NavLink to="/AiAutomation" className={linkClass}>AI Automation & Training</NavLink></li>
                     </ul>
                 </div>
 

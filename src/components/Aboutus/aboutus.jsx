@@ -1,12 +1,19 @@
 import aboutus01 from '../../assets/aboutus01.jpg'
 import aboutus02 from '../../assets/aboutus02.jpg'
+import {Link} from 'react-router-dom'
 function Aboutus() {
     return (
         <section className="bg-gray-100 py-10 px-6" id='about'>
             <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-center ">
                 {/* main div */}
-
+ 
                 <div className="bg-gray-100 rounded-3xl p-8 md:p-14">
+                    <div className='flex gap-9'>
+                        <Link to="/Users"><button className="px-7 py-3 border border-gray-500 text-black rounded-lg font-medium hover:bg-blue-700 hover:text-white transition-all active:scale-95">Click</button></Link>
+                       
+                        <Link to="/Products"><button className="px-7 py-3 border border-gray-500 text-black rounded-lg font-medium hover:bg-blue-700 hover:text-white transition-all active:scale-95">Products</button></Link>
+                       
+                       </div>
                     {/* left div */}
                     <p className="text-sm font-semibold text-gray-500 mb-4">About Us</p>
                     
