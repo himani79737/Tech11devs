@@ -15,7 +15,8 @@ import StaffAugmentation from './components/footerlinks/staffaugmention'
 import SearchMarketing from './components/footerlinks/searchmarketing'
 import ErpImplementation from './components/footerlinks/ERP'
 import AiAutomation from './components/footerlinks/Aiautomation'
-
+import Users from './features/users/usersdata'
+import Products from './features/Products/products'
 
 function HomePage() {
   return (
@@ -28,32 +29,35 @@ function HomePage() {
   )
 }
 
-
 function App() {
 
-
   return (
-  
+
     <>
       <BrowserRouter>
-      <Navbar />
-      <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/Navabout" element={<Navabout/>} />
-                <Route path="/Navwork" element={<Navwork/>} />
-                <Route path="/Navcontact" element={<Navcontact/>} />
-                <Route path="/Service" element={<Service/>} />
-                <Route path="/Labdevelopment" element={<Labdevelopment/>} />
-                <Route path="/StaffAugmentation" element={<StaffAugmentation/>} />
-                <Route path="/SearchMarketing" element={<SearchMarketing/>} />
-                <Route path="/ErpImplementation" element={<ErpImplementation/>} />
-                <Route path="/AiAutomation" element={<AiAutomation/>} />
-              
-                 
-      </Routes>
-      <Footer />
+        <Navbar />
+        {/* <Users/> */}
+        <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/Aboutus" element={<Aboutus />} />
+          <Route path="/Projects" element={<Projects />} />
+          <Route path="/Contactus" element={ <Contactus />} />
+          <Route path="/Navabout" element={<Navabout />} />
+          <Route path="/Navwork" element={<Navwork />} />
+          <Route path="/Navcontact" element={<Navcontact />} />
+          <Route path="/Service" element={<Service />} />
+          <Route path="/Labdevelopment" element={<Labdevelopment />} />
+          <Route path="/StaffAugmentation" element={<StaffAugmentation />} />
+          <Route path="/SearchMarketing" element={<SearchMarketing />} />
+          <Route path="/ErpImplementation" element={<ErpImplementation />} />
+          <Route path="/AiAutomation" element={<AiAutomation />} />
+          <Route path="/Users" element={<Users/>} />
+          <Route path="/Products" element={<Products/>} />
+  
+        </Routes>       
+       <Footer />
       </BrowserRouter>
-    
+
     </>
   )
 }
