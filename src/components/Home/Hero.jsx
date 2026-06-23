@@ -3,7 +3,7 @@ import react, {useEffect, useState} from 'react'
 
 const services = [
   { icon: "💻", label: "Web Development", bg: "#b4cbddd3" },
-  { icon: "☁️", label: "Cloud & DevOps", bg: "#b4cbddd3" },
+  { icon: "☁️", label: "Cloud & DevOps", bg: "#0784e4d3" },
   { icon: "🎨", label: "UI/UX Design", bg: "#b4cbddd3" },
 ];
 
